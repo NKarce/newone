@@ -46,4 +46,14 @@ describe('LoginComponent', () => {
     component.login();
     expect(component.login).toHaveBeenCalledTimes(1);
   });
+  it(' should test if the form is invald', () => {
+    component.userLogin.reset();
+    expect(component.userLogin.valid).toBe(false);
+  });
+  it('should test if the button is disabled', () => {
+    component.userLogin.reset();
+    fixture.detectChanges();
+    const loginbtn = fixture.debugElement.nativeElement.querySelector('#btn');
+    expect(loginbtn.disabled).toBe(true);
+  });
 });
