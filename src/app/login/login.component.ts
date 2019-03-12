@@ -23,6 +23,9 @@ export class LoginComponent implements OnInit {
       Validators.minLength(8)
     ])
   });
+  login() {
+    console.log('hello');
+  }
 
   ngOnInit() {}
 }

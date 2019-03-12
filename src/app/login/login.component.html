@@ -1,32 +1,40 @@
-<div class="container"> 
-    <h3>Login Form</h3>
-<form [formGroup]="userLogin" class="grid">
-  <div class="styleInput"> 
-    <input
-      type="text"
-      placeholder="Enter username"
-      formControlName="username"
-    />
+<div class="container">
+  <h3>Login Form</h3>
+  <form [formGroup]="userLogin" class="grid">
+    <div class="styleInput">
+      <input
+        type="text"
+        placeholder="Enter username"
+        formControlName="username"
+      />
     </div>
     <label
       *ngIf="
-        !userLogin.get('username').valid && userLogin.get('username').touched"
+        !userLogin.get('username').valid && userLogin.get('username').touched
+      "
       >Invalid Username</label
     >
 
-  <div class="styleInput">
-    <input
-      type="password"
-      placeholder="Enter password "
-      formControlName="password"
-    />
+    <div class="styleInput">
+      <input
+        type="password"
+        placeholder="Enter password "
+        formControlName="password"
+      />
     </div>
     <label
       *ngIf="
-        !userLogin.get('password').valid && userLogin.get('password').touched"
+        !userLogin.get('password').valid && userLogin.get('password').touched
+      "
       >Invalid Password</label
     >
-
-  <button class="login-btn" type="submit" [disabled]="!userLogin.valid">Login</button>
-</form>
+    <button
+      id="btn"
+      type="submit"
+      [disabled]="!userLogin.valid"
+      (click)="login()"
+    >
+      Login
+    </button>
+  </form>
 </div>
