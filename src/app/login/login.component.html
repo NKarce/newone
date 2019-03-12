@@ -10,8 +10,7 @@
     </div>
     <label
       *ngIf="
-        !userLogin.get('username').valid && userLogin.get('username').touched
-      "
+        !userLogin.get('username').valid && userLogin.get('username').touched"
       >Invalid Username</label
     >
 
@@ -24,11 +23,10 @@
     </div>
     <label
       *ngIf="
-        !userLogin.get('password').valid && userLogin.get('password').touched
-      "
+        !userLogin.get('password').valid && userLogin.get('password').touched"
       >Invalid Password</label
     >
 
-  <button type="submit" [disabled]="!userLogin.valid">Login</button>
+  <button class="login-btn" type="submit" [disabled]="!userLogin.valid">Login</button>
 </form>
 </div>
