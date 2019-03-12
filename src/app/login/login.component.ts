@@ -1,17 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  Validators
-} from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private _FB: FormBuilder) {}
+  constructor(private _FB: FormBuilder, private _ROUTER: Router) {}
 
   userLogin = this._FB.group({
     username: this._FB.control('', [
@@ -25,6 +21,7 @@ export class LoginComponent implements OnInit {
   });
   login() {
     console.log('hello');
+    this._ROUTER.navigate(['/home']);
   }
 
   ngOnInit() {}
