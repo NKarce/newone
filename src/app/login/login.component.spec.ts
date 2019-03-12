@@ -3,15 +3,19 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginComponent } from './login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+import { HomeComponent } from '../home/home.component';
+import { Router } from '@angular/router';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  let mockRouter: Router;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [LoginComponent],
-      imports: [ReactiveFormsModule]
+      declarations: [LoginComponent, HomeComponent],
+      imports: [ReactiveFormsModule],
+      providers: [{ provide: Router, useValue: mockRouter }]
     }).compileComponents();
   }));
 
@@ -41,9 +45,11 @@ describe('LoginComponent', () => {
   });
   it('should simulat button click', () => {
     spyOn(component, 'login');
+    component.userLogin.get('username').setValue('fairouz');
+    component.userLogin.get('password').setValue('fairouz05');
+    fixture.detectChanges();
     const btnDg = fixture.debugElement.query(By.css('#btn')).nativeElement;
     btnDg.click();
-    component.login();
     expect(component.login).toHaveBeenCalledTimes(1);
   });
   it(' should test if the form is invald', () => {
@@ -55,5 +61,9 @@ describe('LoginComponent', () => {
     fixture.detectChanges();
     const loginbtn = fixture.debugElement.nativeElement.querySelector('#btn');
     expect(loginbtn.disabled).toBe(true);
+  });
+  it('should navigate to home page', () => {
+    component.userLogin.get('username').setValue('fairouz');
+    component.userLogin.get('password').setValue('fairouz05');
   });
 });
