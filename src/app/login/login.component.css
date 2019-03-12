@@ -1,0 +1,14 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+.styleInput {
+  padding: 20px;
+}
+.container {
+  margin:100px auto; 
+  width: 350px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px 0 rgba(181, 181, 181, 0.7);
+}
